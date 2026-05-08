@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A&C Residential Construction</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #222;
+      line-height: 1.6;
+      background: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Header */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo img {
+      height: 70px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      font-weight: bold;
+      color: #0b1f4d;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #244ea3;
+    }
+
+    .phone-btn {
+      background: #0b1f4d;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    /* Hero */
+    .hero {
+      height: 90vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.55)),
+        url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1800&auto=format&fit=crop') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: 72px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      font-weight: 900;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 35px;
+      color: #ddd;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #0b1f4d;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #16367c;
+    }
+
+    .btn-outline {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: #111;
+    }
+
+    /* Sections */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title p {
+      color: #0b1f4d;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .section-title h2 {
+      font-size: 48px;
+    }
+
+    /* About */
+    .about {
+      background: #f8f8f8;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 48px;
+      margin-bottom: 25px;
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+      color: #555;
+      font-size: 18px;
+    }
+
+    .about-image img {
+      border-radius: 12px;
+      height: 500px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .service-card {
+      background: #fff;
+      padding: 35px;
+      border-radius: 12px;
+      border: 1px solid #eee;
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .service-card h3 {
+      margin: 20px 0 15px;
+      color: #0b1f4d;
+    }
+
+    .service-icon {
+      font-size: 50px;
+    }
+
+    /* Projects */
+    .projects {
+      background: #f2f2f2;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-content h3 {
+      color: #0b1f4d;
+      margin-bottom: 10px;
+    }
+
+    /* CTA */
+    .cta {
+      background: #0b1f4d;
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: auto auto 35px;
+      color: #ccc;
+      font-size: 18px;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: #ccc;
+      padding: 70px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 50px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo img {
+      height: 90px;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      display: block;
+      margin-bottom: 12px;
+      transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .copyright {
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      text-align: center;
+      color: #777;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .services-grid,
+      .projects-grid,
+      .footer-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .section-title h2,
+      .about-text h2,
+      .cta h2 {
+        font-size: 34px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <img src="A&C Logo.jpg" alt="A&C Residential Construction Logo">
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#services">SERVICES</a></li>
+          <li><a href="#projects">PROJECTS</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <a href="tel:5551234567" class="phone-btn">(555) 123-4567</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1>BUILDING<br>DREAM HOMES,<br>TOGETHER.</h1>
+
+        <p>
+          A&C Residential Construction delivers beautiful residential construction and remodeling services built on trust, quality, and craftsmanship.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#services" class="btn btn-primary">OUR SERVICES</a>
+          <a href="#projects" class="btn btn-outline">VIEW PROJECTS</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div class="about-text">
+        <p>ABOUT US</p>
+        <h2>Built on Trust,<br>Driven by Excellence.</h2>
+
+        <p>
+          A&C Residential Construction is a a trusted residential construction company focused on custom homes, renovations, and remodeling projects.
+        </p>
+
+        <p>
+          Our experienced team combines innovation, craftsmanship, and strong
+          client relationships to ensure every project is completed safely,
+          efficiently, and on schedule.
+        </p>
+      </div>
+
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1400&auto=format&fit=crop"
+          alt="Construction Team"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <p>OUR SERVICES</p>
+        <h2>Construction Solutions</h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🏢</div>
+          <h3>Custom Home Building</h3>
+          <p>
+            Beautiful custom homes built with craftsmanship, quality materials, and attention to detail.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🦺</div>
+          <h3>Home Remodeling</h3>
+          <p>
+            Complete remodeling services that transform your home into a modern, functional space.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🔧</div>
+          <h3>Kitchen & Bath Renovations</h3>
+          <p>
+            Stylish kitchen and bathroom renovations designed to increase comfort and value.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">✔️</div>
+          <h3>Outdoor Living Spaces</h3>
+          <p>
+            Custom patios, decks, pergolas, and outdoor living areas built for relaxation and entertaining.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-title">
+        <p>FEATURED PROJECTS</p>
+        <h2>Built with Experience.<br>Delivered with Pride.</h2>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <img
+            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
+            alt="Office Building"
+          >
+
+          <div class="project-content">
+            <h3>Modern Family Home</h3>
+            <p>Ozark, MO</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img
+            src="https://images.unsplash.com/photo-1600210492493-0946911123ea?q=80&w=1200&auto=format&fit=crop"
+            alt="Warehouse"
+          >
+
+          <div class="project-content">
+            <h3>Luxury Kitchen Remodel</h3>
+            <p>Springfield, MO</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img
+            src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop"
+            alt="Custom Outdoor Patio"
+          >
+
+          <div class="project-content">
+            <h3>Healthcare Facility</h3>
+            <p>Nixa, MO</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Partner With a Team You Can Trust.</h2>
+
+      <p>
+        We bring expertise, quality craftsmanship, and dependable project
+        management to every build.
+      </p>
+
+      <a href="#contact" class="btn btn-primary">GET IN TOUCH</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="A&C Logo.jpg" alt="A&C Residential Construction">
+        </div>
+
+        <p>
+          A&C Residential Construction is dedicated to delivering reliable,
+          high-quality construction services with integrity and professionalism.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <br>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div>
+        <h3>Contact Us</h3>
+        <br>
+        <p>📞 (555) 123-4567</p>
+        <p>✉️ info@acconstructiongroup.com</p>
+        <p>📍 123 Construction Way, Greenville, SC</p>
+      </div>
+    </div>
+
+    <div class="container copyright">
+      © 2026 A&C Residential Construction. All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
